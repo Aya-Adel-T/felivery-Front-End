@@ -1,0 +1,20 @@
+
+<div class="container mr-5">
+    <table style="width: 100%">
+        <tr>
+          <th>Item name</th>
+          <th>category name</th>
+          <th>Restaurant Name</th>
+          <th>Price</th>
+        </tr>
+        <tr *ngFor="let items of items">
+          <td>{{ items.name }}</td>
+          <td>{{ items.category.name }}</td>
+          <td>{{ items.restaurant.name }}</td>
+          <td>{{ items.price }}</td>
+        </tr>
+      </table>
+      <button type="button" class="btn btn-outline-info mt-5" (click)="goBack()">Go Back</button>
+</div>
+
+<!-- <ngb-rating></ngb-rating> -->

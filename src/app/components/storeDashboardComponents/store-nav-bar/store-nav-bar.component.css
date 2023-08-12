@@ -1,0 +1,49 @@
+.sidenav a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidenav a:hover {
+  color: #e9e3de;
+}
+
+.margin-buttom {
+  margin-top: 70px;
+}
+
+#sidbarnav {
+  width: 230px;
+  overflow-x: hidden;
+  text-transform: uppercase;
+  font-family: 'Abril Fatface', serif;
+  background-color: #f3650e;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  height: 100vh;
+}
+
+#sidbarnav .navbar-brand {
+  color: white;
+}
+
+#sidbarnav li a {
+  color: white;
+}
+
+#sidbarnav .nav-link:active,
+#sidbarnav .nav-link:focus,
+#sidbarnav .nav-link:hover {
+  color:  #64300f;
+}
+
+span{
+  margin-left: 10px;
+}
+
+.style-img{
+  border-radius: 50%;
+  height: 150px;
+  width:200px;
+}

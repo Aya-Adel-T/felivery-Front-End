@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="container justify-content-center mb-3">
+      <div class="row justify-content-center">
+
+        <div class="col-8 mt-4">
+        <div class="container m-3">
+          <div class="row">
+            <div class="col-8">
+              <h1 class="hidding-offerr">Your Shopping Cart</h1>
+            </div>
+            <div class="col-1 p-3">
+          <button class="btn btn-outline-dark" (click)="previousPage()">Back</button>
+
+            </div>
+            <div class="col-2 p-3">
+          <button class="btnn" (click)="clearCart()">Clear Cart</button>
+
+            </div>
+          </div>
+          <div class="row mt-3 cart-card" *ngFor="let o of orders">
+             <!-- img -->
+
+            <div class="col-3">
+              <img src={{o.menuItemID.menuItemImg}} class="cart-img" alt="">
+
+
+            </div> 
+            <!-- name -->
+            <div class="col-4 p-5">
+            <h4 style="font-size: 50px;" class="hidding-offer">
+
+             {{ o.menuItemID.name }}
+            </h4> 
+            <h4>
+              {{o.menuItemID.description}}
+            </h4>
+            </div>
+            
+            <!-- total price -->
+            <div class="col-2 p-5">
+             <h5 > {{ o.menuItemID.price * o.quantity }}LE</h5>
+            </div>
+            <!-- increase quantity -->
+            <div class="col-1 quan">
+              <button class=" btn-quan" (click)="incrementQuantity(o)">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              <div class="text-center">{{ o.quantity }}</div>
+              <button class=" btn-quan" (click)="decrementQuantity(o)">  
+                <i class="fa-solid fa-minus"></i>
+              </button>
+
+            </div>
+            <!-- delete button -->
+            <div class="col-2 p-5">
+              <td><button class="btn-delete" (click)="removefromCart(o.menuItemID.id)"><i class="fa-solid fa-xmark"></i></button></td>
+
+            </div>
+          </div>
+          <hr>
+            <!-- Total price for all items -->
+          <div class="row">
+            <div class="col-3">
+             <h1>Total Bill :</h1>
+            </div>
+            <div class="col-6"></div>
+            <div class="col-3">
+              <h1>{{totalprice}} LE</h1>
+            </div>
+          </div>
+         </div>
+        </div>
+
+       <div class="col-4 padding-payment bg-dark text-white">
+        <div class="row">
+          <div class="col-3">
+          <h1 class="hidding-offerr">payment</h1>
+</div>
+
+
+        </div>
+        <div class="row">
+          <label>Accepted Cards</label>
+          <div #paymentRef></div>
+          <hr> 
+          <div class="icon-container">
+          <label for="delv" > Cash On Delivery &nbsp; </label>
+          <img width="60px" src="assets\cash-on-delivery.png"> &nbsp;
+          <input type="checkbox" id="delv"> 
+          </div>
+          <hr> 
+            <label style="color: orange;">Please Enter your address before checkout</label>
+            <select  class="btn btn-secondary dropdown-toggle w-25" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+              <option> Giza </option>
+              <option> Cairo </option>
+            </select>
+            <input type="text" [(ngModel)]="address" [formControl] = "addresss" placeholder="Ex: 23 saad st. ..etc" style="color: #ffff;">         
+            <div *ngIf = "addresss.errors " >
+              <div class= "validateerrorstyle" *ngIf = "addresss.errors['maxlength'] && addresss.touched" > Address can have at most 12 characters.</div>
+              <div class= "validateerrorstyle" *ngIf = "addresss.errors['required'] && addresss.touched" > Address is required.</div >
+            </div >
+          </div>
+          <div class="row mt-2 mb-2">
+            <button (click)="placeOrder()" class="btnn">Checkout </button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+

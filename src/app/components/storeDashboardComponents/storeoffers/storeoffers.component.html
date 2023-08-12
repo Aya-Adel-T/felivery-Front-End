@@ -1,0 +1,40 @@
+<div class="row mt-4 mb-4">
+  <h3 class="hidding-offer" style="color:aliceblue">All Offers In Restaurants</h3>
+</div>
+<hr class="style-line">
+<div class="container mb-5">
+  <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+    <div *ngFor="let Restaurant of offers" class="col d-flex justify-content-center">
+
+      <div class="offer-cards">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <img [src]="Restaurant.menuItemImg" alt="Image" class="imgoffer" />
+          </div>
+        </div>
+        <div class="row justify-content-center h-hidding">
+          <div class="col-12 text-center">
+            <h1 class="ff pt-3 pl-2 pr-2">
+              {{ Restaurant.name }}
+              <i class="fa-solid fa-tag font-icon" style="color: #9b0707;"></i>
+            </h1>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-2">
+            <p style="text-decoration: line-through; width: 50px; "> {{Restaurant.price + 15}} LE</p>
+            <p style=" width: 50px; ">
+              {{Restaurant.price }} LE
+            </p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center h-desc">
+          <div class="col-12 text-center">
+            <p class="pl-3 pr-3">{{ Restaurant.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
